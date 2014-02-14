@@ -149,6 +149,13 @@ java.io.Serializable
 	 * Delete Option set
 	 */
 	public synchronized void deleteOptionSet(String name){
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		int i;
 		for(i=0;i<optSet.size();i++){
 			if( optSet.get(i).getName().equals(name)){
@@ -157,6 +164,9 @@ java.io.Serializable
 		}
 		optSet.remove(i);
 		
+		System.out.println();
+		System.out.println("Option Set "+name+" is deleted.");
+		
 	}
 	
 	/*
@@ -164,6 +174,9 @@ java.io.Serializable
 	 */
 
 	public synchronized void deleteOption(String optionSetName, String optionName){
+		
+
+		
 		int i,j;
 		for(i=0;i<optSet.size();i++){
 			
@@ -180,6 +193,9 @@ java.io.Serializable
 		}
 		optSet.get(i).getOpt().remove(j);
 		
+		System.out.println();
+		System.out.println("The option "+optionName+" in option set "+optionSetName+" is deleted.");
+
 	}
 	
 	/*

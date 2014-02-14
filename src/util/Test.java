@@ -20,12 +20,30 @@ public class Test {
 		
 		//EditOption delete given option set and an option
 		
-		EditOption eo = new EditOption(autoForThread, "Color","Power Moonroof", "New Selected");
+		EditOption eo = new EditOption(autoForThread, "Color","Side Impact Air Bags", "None");
 		Thread t1 = new Thread(eo);
 		EditOption eo2 = new EditOption(autoForThread, "Power Moonroof", "Transmission", "Standard");
 		Thread t2 = new Thread(eo2);
 		t1.start();
 		t2.start();
+		System.out.println();
+		System.out.println("Now nothing is deleted since there is a sleep at the beging of thread1");
+		System.out.println("Thread 2 is waiting for the synchronized part of thread 1 to finish");
+		
+		
+		try {
+			Thread.sleep(12000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println();
+		
+		System.out.println("Both thread1 and thread2 finished its deletion");
+		auto.printAuto("Wagon ZTW");
+
+		
+		
 
 	}
 
