@@ -38,27 +38,27 @@ java.io.Serializable
 	/*
 	 * Getters
 	 */
-	public String getMake() {
+	public synchronized String getMake() {
 		return make;
 	}
 	
-	public String getModel() {
+	public synchronized String getModel() {
 		return model;
 	}
 	
-	public float getBaseprice() {
+	public synchronized float getBaseprice() {
 		return baseprice;
 	}
 		
-	public String getOptionChoice(String setName){
+	public synchronized String getOptionChoice(String setName){
 		return findOptSet(setName).getOptChoice().getName();
 	}
 	
-	public float getOptionChoicePrice(String setName){
+	public synchronized float getOptionChoicePrice(String setName){
 		return findOptSet(setName).getOptChoice().getPrice();	
 		}
 	
-	public float getTotalPrice(){
+	public synchronized float getTotalPrice(){
 		
 		float totalPrice = 0;
 		for(int i=0;i<optSet.size();i++){
@@ -220,7 +220,7 @@ java.io.Serializable
 	/*
 	 * Print
 	 */
-	public void print(){
+	public synchronized void print(){
 		System.out.println("Name of the automobile: " + this.make +" "+ this.model);
 		System.out.println("Base price of the automobile: "+ this.baseprice);
 		System.out.println("-----------------------------------------------");

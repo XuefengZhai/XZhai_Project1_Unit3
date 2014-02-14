@@ -1,3 +1,6 @@
+/*
+ * EditOption thread class
+ */
 package scale;
 
 

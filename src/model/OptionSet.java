@@ -35,19 +35,19 @@ java.io.Serializable
 	/*
 	 * Getters
 	 */
-	protected String getName() {
+	protected synchronized String getName() {
 		return name;
 	}
 
-	protected Option getOpt(int index) {
+	protected synchronized Option getOpt(int index) {
 		return opt.get(index);
 	}
 	
-	protected ArrayList<Option> getOpt(){
+	protected synchronized ArrayList<Option> getOpt(){
 		return opt;
 	}
 		
-	protected Option getOptChoice(){
+	protected synchronized Option getOptChoice(){
 		return choice;
 	}
 	
@@ -100,11 +100,11 @@ java.io.Serializable
 		/*
 		 * Getters
 		 */
-		protected String getName() {
+		protected synchronized String getName() {
 			return name;
 		}
 
-		protected float getPrice() {
+		protected synchronized float getPrice() {
 			return price;
 		}
 		/*

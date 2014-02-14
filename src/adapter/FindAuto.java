@@ -1,3 +1,6 @@
+/*
+ * Interface for find an auto and return it
+ */
 package adapter;
 import model.*;
 
