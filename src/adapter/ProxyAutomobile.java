@@ -30,6 +30,12 @@ public abstract class ProxyAutomobile {
 	public void updateOptionPrice(String modelname, String optionSetname, String option, float newPrice){
 		a1.get(modelname).updateOption(optionSetname, option, newPrice);
 	}
+	
+	public Automobile findAuto(String model){
+		
+		return a1.get(model);
+						
+	}
 }
 
 

@@ -75,31 +75,31 @@ java.io.Serializable
 	 * Setters
 	 */
 
-	public void setMake(String make) {
+	public synchronized void setMake(String make) {
 		this.make = make;
 	}
 	
-	public void setModel(String model) {
+	public synchronized void setModel(String model) {
 		this.model = model;
 	}
 
-	public void setBaseprice(float baseprice) {
+	public synchronized void setBaseprice(float baseprice) {
 		this.baseprice = baseprice;
 	}
 	
-	public void setOptionChoice(String setName, String optionName ){
+	public synchronized void setOptionChoice(String setName, String optionName ){
 		findOptSet(setName).setOptChoice(optionName);
 	}
 	
 	
 	
-	public void addOptset(String name) {
+	public synchronized void addOptset(String name) {
 		
 		OptionSet temp = new OptionSet(name);
 		optSet.add(temp);
 	}
 	
-	public void addOpt(String name, float price, int setIndex) {
+	public synchronized void addOpt(String name, float price, int setIndex) {
 		
 		this.optSet.get(setIndex).setOpt(name, price);
 		
@@ -108,7 +108,7 @@ java.io.Serializable
 	/*
 	 * Find option set by name
 	 */
-	public OptionSet findOptSet(String optionSetName){
+	public synchronized OptionSet findOptSet(String optionSetName){
 	
 		OptionSet temp = new OptionSet();
 		for(int i=0;i<optSet.size();i++){
@@ -124,7 +124,7 @@ java.io.Serializable
 	/*
 	 * Find option by option set name and option
 	 */
-	public OptionSet.Option findOpt(String optionSetName,String optionName){
+	public synchronized OptionSet.Option findOpt(String optionSetName,String optionName){
 		
 		int i,j;
 		for(i=0;i<optSet.size();i++){
@@ -148,7 +148,7 @@ java.io.Serializable
 	/*
 	 * Delete Option set
 	 */
-	public void deleteOptionSet(String name){
+	public synchronized void deleteOptionSet(String name){
 		int i;
 		for(i=0;i<optSet.size();i++){
 			if( optSet.get(i).getName().equals(name)){
@@ -163,7 +163,7 @@ java.io.Serializable
 	 * Delete Option
 	 */
 
-	public void deleteOption(String optionSetName, String optionName){
+	public synchronized void deleteOption(String optionSetName, String optionName){
 		int i,j;
 		for(i=0;i<optSet.size();i++){
 			
@@ -185,11 +185,11 @@ java.io.Serializable
 	/*
 	 * Update
 	 */
-	public void updateOptionSetName (String oldName, String newName){
+	public synchronized void updateOptionSetName (String oldName, String newName){
 		findOptSet(oldName).setName(newName);
 	}
 	
-	public void updateOption (String optionSetName, String optionName, float newPrice){
+	public synchronized void updateOption (String optionSetName, String optionName, float newPrice){
 		findOpt(optionSetName, optionName).setPrice(newPrice);
 		
 	}

@@ -54,17 +54,17 @@ java.io.Serializable
 	/*
 	 * Setters
 	 */
-	protected void setName(String name) {
+	protected synchronized void setName(String name) {
 		this.name = name;
 	}
 
-	protected void setOpt(String name, float price) {
+	protected synchronized void setOpt(String name, float price) {
 		
 		Option newOption = new Option(name, price);
 		opt.add(newOption);
 	}
 	
-	protected void setOptChoice(String optionName){
+	protected synchronized void setOptChoice(String optionName){
 		Option temp = new Option();
 		for(int i=0;i<opt.size();i++){
 			temp = opt.get(i);
@@ -110,11 +110,11 @@ java.io.Serializable
 		/*
 		 * Setters
 		 */
-		protected void setName(String name) {
+		protected synchronized void setName(String name) {
 			this.name = name;
 		}
 
-		protected void setPrice(float price) {
+		protected synchronized void setPrice(float price) {
 			this.price = price;
 		}
 	}
