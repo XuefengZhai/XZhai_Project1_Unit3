@@ -24,15 +24,17 @@ public class Test {
 		Thread t1 = new Thread(eo);
 		EditOption eo2 = new EditOption(autoForThread, "Power Moonroof", "Transmission", "Standard");
 		Thread t2 = new Thread(eo2);
+		t1.setName("Thread1");
+		t2.setName("Thread2");
 		t1.start();
 		t2.start();
 		System.out.println();
-		System.out.println("Now nothing is deleted since there is a sleep at the beging of thread1");
+		System.out.println("Now nothing is deleted since there is a sleep at the beginning of thread1");
 		System.out.println("Thread 2 is waiting for the synchronized part of thread 1 to finish");
 		
 		
 		try {
-			Thread.sleep(12000);
+			Thread.sleep(6000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -40,6 +42,9 @@ public class Test {
 		System.out.println();
 		
 		System.out.println("Both thread1 and thread2 finished its deletion");
+		
+		System.out.println();
+		
 		auto.printAuto("Wagon ZTW");
 
 		

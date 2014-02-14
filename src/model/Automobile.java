@@ -150,10 +150,17 @@ java.io.Serializable
 	 */
 	public synchronized void deleteOptionSet(String name){
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		/*
+		 * Only sleep thread 1
+		 */
+		String threadname = Thread.currentThread().getName();
+		
+		if( threadname.equals("Thread1") ){
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 
 		int i;
@@ -165,7 +172,7 @@ java.io.Serializable
 		optSet.remove(i);
 		
 		System.out.println();
-		System.out.println("Option Set "+name+" is deleted.");
+		System.out.println("Option Set "+name+" is deleted by "+threadname+".");
 		
 	}
 	
@@ -175,7 +182,7 @@ java.io.Serializable
 
 	public synchronized void deleteOption(String optionSetName, String optionName){
 		
-
+		String threadname = Thread.currentThread().getName();
 		
 		int i,j;
 		for(i=0;i<optSet.size();i++){
@@ -194,7 +201,7 @@ java.io.Serializable
 		optSet.get(i).getOpt().remove(j);
 		
 		System.out.println();
-		System.out.println("The option "+optionName+" in option set "+optionSetName+" is deleted.");
+		System.out.println("The option "+optionName+" in option set "+optionSetName+" is deleted by "+threadname+".");
 
 	}
 	
