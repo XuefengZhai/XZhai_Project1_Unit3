@@ -8,10 +8,10 @@ import model.Automobile;
 
 public class EditOption implements Runnable {
 	
-	Automobile auto = new Automobile();
-	String optionSetname = null;
-	String optionSetName2 = null;
-	String optionName = null;
+	private Automobile auto = new Automobile();
+	private String optionSetname = null;
+	private String optionSetName2 = null;
+	private String optionName = null;
 	
 	public EditOption(Automobile auto, String optionSetname, String optionSetName2, String optionName){
 		
